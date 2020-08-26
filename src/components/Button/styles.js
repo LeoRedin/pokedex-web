@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {lighten} from 'polished'
 
 export const Container = styled.div`
   display: flex;
@@ -9,8 +10,13 @@ export const Container = styled.div`
   padding: 0.35em;
   cursor: pointer;
   margin: 0 10px;
+
+  &:hover {
+    background-color: ${lighten(0.07, '#007bff')};
+  }
 `
 
 export const ButtonText = styled.span`
   color: #fff;
+  font-size: 0.7em;
 `
