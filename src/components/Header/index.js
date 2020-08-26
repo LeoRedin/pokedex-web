@@ -1,51 +1,26 @@
-import React, {useState} from 'react'
-import {icons as iconsNames} from '../../utils/icons'
+import React from 'react'
 
-import {Icon} from '../Icon'
+import {Menu} from '../Menu'
 
 import {Container, ContainerTitle, Title, Subtitle} from './styles'
 
-function Header() {
-  const icons = [
-    {
-      name: iconsNames.FILTER_UP,
-      color: 'red',
-    },
-    {
-      name: iconsNames.SORT_ALPHA,
-      color: 'orange',
-    },
-  ]
+// Criar componente de Botão => 3 props
+// Ícone(opcional)
+// Conteúdo desse botão
+// cor => cor padrão, primary, secundary, success, error
 
+// Menu => Sobre, Logout, Home, Gerações
+
+function Header() {
   return (
     <Container>
       <ContainerTitle>
         <Title>Pokédex</Title>
         <Subtitle>Procure por pokémons pelo nome ou região</Subtitle>
       </ContainerTitle>
-      <Search />
-      {icons.map(({name, color}) => (
-        <Icon key={name} name={name} color={color} />
-      ))}
+      <Menu />
     </Container>
   )
 }
-
-function Search() {
-  const [pokemonName, setPokemonName] = useState('')
-  return (
-    <div>
-      <input
-        placeholder="Qual pokemon quer pesquisar?"
-        value={pokemonName}
-        onChange={e => setPokemonName(e.target.value)}
-      />
-    </div>
-  )
-}
-
-// Esquerda Pokedex, title, nome do app
-// Barra de busca => filtrar a lista
-// 3 ícones filtros
 
 export {Header}

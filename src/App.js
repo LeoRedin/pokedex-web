@@ -4,11 +4,14 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import {
   faSortAmountUp,
   faSortAlphaDown,
+  faHome,
+  faInfo,
+  faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {Footer, Header, Main} from './components'
 
-library.add(faSortAmountUp, faSortAlphaDown)
+library.add(faSortAmountUp, faSortAlphaDown, faHome, faInfo, faSignOutAlt)
 
 function App() {
   return (

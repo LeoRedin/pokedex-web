@@ -1,8 +1,14 @@
 import React from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-function Icon({name, color}) {
-  return <FontAwesomeIcon icon={name} color={color} />
+import {Container} from './styles'
+
+function Icon({name, color = '#fff'}) {
+  return (
+    <Container>
+      <FontAwesomeIcon icon={name} color={color} />
+    </Container>
+  )
 }
 
 export {Icon}
