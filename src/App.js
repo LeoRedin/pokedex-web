@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import {BrowserRouter as Router} from 'react-router-dom'
 
-import {Layout, Footer, Header} from 'components'
+import {Layout, RoutesLayout, Footer, Header} from 'components'
 
 import {Routes} from './routes'
 
@@ -21,7 +21,9 @@ function App() {
     <Router>
       <Layout>
         <Header />
-        <Routes />
+        <RoutesLayout>
+          <Routes />
+        </RoutesLayout>
         <Footer />
       </Layout>
     </Router>

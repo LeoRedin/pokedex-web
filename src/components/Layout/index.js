@@ -1,9 +1,13 @@
 import React from 'react'
 
-import {Outer} from './styles'
+import {Outer, OuterRoutes} from './styles'
 
 function Layout({children}) {
   return <Outer> {children} </Outer>
 }
 
-export {Layout}
+function RoutesLayout({children}) {
+  return <OuterRoutes>{children}</OuterRoutes>
+}
+
+export {Layout, RoutesLayout}
