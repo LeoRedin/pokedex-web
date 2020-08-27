@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 import {Button} from '../Button'
 
@@ -14,25 +15,29 @@ function Menu() {
     {
       name: 'Home',
       icon: icons.HOME,
+      linkTo: '/',
     },
     {
       name: 'Gerações',
+      linkTo: '/geracoes',
     },
     {
       name: 'Sobre',
       icon: icons.INFO,
+      linkTo: '/sobre',
     },
     {
       name: 'Logout',
       icon: icons.LOGOUT,
+      linkTo: '/',
     },
   ]
   return (
     <Container>
       {buttons.map(button => (
-        <Button key={button.name} icon={button.icon}>
-          {button.name}
-        </Button>
+        <Link key={button.name} to={button.linkTo}>
+          <Button icon={button.icon}>{button.name}</Button>
+        </Link>
       ))}
     </Container>
   )
