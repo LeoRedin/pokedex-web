@@ -1,24 +1,19 @@
 import React from 'react'
 
-import {Menu} from '../Menu'
+import {Menu} from 'components/Menu'
 
-import {Container, ContainerTitle, Title, Subtitle} from './styles'
-
-// Criar componente de Botão => 3 props
-// Ícone(opcional)
-// Conteúdo desse botão
-// cor => cor padrão, primary, secundary, success, error
-
-// Menu => Sobre, Logout, Home, Gerações
+import {Container, ContainerTitle, Title, Subtitle, Content} from './styles'
 
 function Header() {
   return (
     <Container>
-      <ContainerTitle>
-        <Title>Pokédex</Title>
-        <Subtitle>Procure por pokémons pelo nome ou região</Subtitle>
-      </ContainerTitle>
-      <Menu />
+      <Content>
+        <ContainerTitle>
+          <Title>Pokédex</Title>
+          <Subtitle>Procure por pokémons pelo nome ou região</Subtitle>
+        </ContainerTitle>
+        <Menu />
+      </Content>
     </Container>
   )
 }

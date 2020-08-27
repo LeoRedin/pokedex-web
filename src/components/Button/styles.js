@@ -10,7 +10,8 @@ export const Container = styled.div`
   padding: 0.35em;
   cursor: pointer;
   margin: 0 10px;
-
+  height: 20px;
+  min-width: 70px;
   &:hover {
     background-color: ${lighten(0.07, '#007bff')};
   }

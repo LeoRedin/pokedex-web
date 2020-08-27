@@ -1,11 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 
-import {Button} from '../Button'
+import {Button} from 'components/Button'
 
-import {icons} from '../../utils/icons'
+import {icons} from 'utils/icons'
 
-import {Container} from './styles'
+import {Container, Link} from './styles'
 
 // 4 botões de navegação
 // Criar o botão

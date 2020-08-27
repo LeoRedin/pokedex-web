@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import {BrowserRouter as Router} from 'react-router-dom'
 
-import {Footer, Header} from './components'
+import {Layout, Footer, Header} from 'components'
 
 import {Routes} from './routes'
 
@@ -19,9 +19,11 @@ library.add(faSortAmountUp, faSortAlphaDown, faHome, faInfo, faSignOutAlt)
 function App() {
   return (
     <Router>
-      <Header />
-      <Routes />
-      <Footer />
+      <Layout>
+        <Header />
+        <Routes />
+        <Footer />
+      </Layout>
     </Router>
   )
 }

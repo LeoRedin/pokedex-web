@@ -29,6 +29,18 @@
     "rules": {
       "jsx-a11y/autocomplete-valid": 0,
       "react/prop-types": 0
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": [
+            "src"
+          ],
+          "extensions": [
+            ".js"
+          ]
+        }
+      }
     }
   },
   "prettier": {
