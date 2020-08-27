@@ -8,18 +8,21 @@ import {
   faInfo,
   faSignOutAlt,
 } from '@fortawesome/free-solid-svg-icons'
+import {BrowserRouter as Router} from 'react-router-dom'
 
-import {Footer, Header, Main} from './components'
+import {Footer, Header} from './components'
+
+import {Routes} from './routes'
 
 library.add(faSortAmountUp, faSortAlphaDown, faHome, faInfo, faSignOutAlt)
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
-      <Main />
+      <Routes />
       <Footer />
-    </>
+    </Router>
   )
 }
 
