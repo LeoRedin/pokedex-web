@@ -1,8 +1,17 @@
 import React from 'react'
 
+import {Wrapper, PokeInfo} from './styles'
+
 function Home() {
-  //pegar os dados da api ????
-  return <div>Home</div>
+  const pokes = [{name: 'Bulbassaur'}, {name: 'Charmander'}, {name: 'Squirtle'}]
+
+  return (
+    <Wrapper>
+      {pokes.map(poke => (
+        <PokeInfo key={poke.name}> {poke.name}</PokeInfo>
+      ))}
+    </Wrapper>
+  )
 }
 
 export {Home}
