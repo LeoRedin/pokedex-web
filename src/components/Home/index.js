@@ -3,7 +3,7 @@ import React from 'react'
 import {getInitialPokemons, api} from 'services/api'
 import {PokemonCard} from 'components/PokemonCard'
 
-import {Wrapper, PokeInfo} from './styles'
+import {Wrapper} from './styles'
 
 function Home() {
   const [pokemons, setPokemons] = React.useState()
