@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {getInitialPokemons, api} from 'services/api'
+import {PokemonCard} from 'components/PokemonCard'
 
 import {Wrapper, PokeInfo} from './styles'
 
@@ -41,31 +42,15 @@ function Home() {
     getPokes()
   }, [])
 
+  // eslint-disable-next-line no-console
+  console.log('pokes', pokemons)
+
   if (loading) return <span style={{color: '#fff'}}>Loading...</span>
 
   return (
     <Wrapper>
-      {pokemons.map(poke => (
-        <PokeInfo key={poke.id}>
-          #{poke.id}
-          <br />
-          {poke.name}
-          <br />
-          {poke.types.map(type => (
-            <>
-              <span key={type}>{type.type.name}</span> {''}
-            </>
-          ))}
-          <br />
-          <div>
-            <img
-              src={poke.image}
-              alt={`Imagem do ${poke.name}`}
-              width="130"
-              height="130"
-            />
-          </div>
-        </PokeInfo>
+      {pokemons.map(pokemon => (
+        <PokemonCard key={pokemon.id} {...pokemon} />
       ))}
     </Wrapper>
   )
