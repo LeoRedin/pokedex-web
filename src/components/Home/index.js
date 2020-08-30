@@ -13,23 +13,27 @@ function Home() {
       const pokeData = await getInitialPokemons()
 
       if (pokeData.success) {
-        // Promise.all([promise1, promise2, promise3]).then(() => {})
-        const updatedPokemons = []
-        pokeData.pokemons.map(async (poke, index) => {
-          const {data} = await api.get(poke.url)
-          const uniquePoke = {
-            id: data.id,
-            name: data.name,
-            types: data.types,
-            image: data.sprites.other['official-artwork'].front_default,
-          }
+        const promises = []
 
-          updatedPokemons.push(uniquePoke)
+        pokeData.pokemons.map(pokemon => promises.push(api.get(pokemon.url)))
 
-          if (index === 2) {
-            setPokemons(updatedPokemons)
-            setLoading(false)
-          }
+        Promise.allSettled(promises).then(results => {
+          const updatedPokemons = []
+          results.map(result => {
+            if (result.status === 'fulfilled') {
+              const uniquePoke = {
+                id: result.value.data.id,
+                name: result.value.data.name,
+                types: result.value.data.types,
+                image:
+                  result.value.data.sprites.other['official-artwork']
+                    .front_default,
+              }
+              updatedPokemons.push(uniquePoke)
+            }
+          })
+          setPokemons(updatedPokemons)
+          setLoading(false)
         })
       }
     }
@@ -42,7 +46,7 @@ function Home() {
   return (
     <Wrapper>
       {pokemons.map(poke => (
-        <PokeInfo key={poke.name}>
+        <PokeInfo key={poke.id}>
           #{poke.id}
           <br />
           {poke.name}

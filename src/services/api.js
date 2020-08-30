@@ -6,7 +6,7 @@ const api = axios.create({
 
 async function getInitialPokemons() {
   try {
-    const responseData = await api.get('/pokemon?limit=3&offset=3')
+    const responseData = await api.get('/pokemon?limit=9')
     return {
       success: true,
       pokemons: [...responseData.data.results],

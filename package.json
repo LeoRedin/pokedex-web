@@ -29,7 +29,8 @@
     ],
     "rules": {
       "jsx-a11y/autocomplete-valid": 0,
-      "react/prop-types": 0
+      "react/prop-types": 0,
+      "array-callback-return": 0
     },
     "settings": {
       "import/resolver": {
