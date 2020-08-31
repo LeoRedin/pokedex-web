@@ -20,7 +20,7 @@ function PokemonCard({id, name, types, image}) {
       <Name> {name} </Name>
       <Badges>
         {types.map(type => (
-          <Badge key={id}>
+          <Badge key={`${name} - ${badges[type.type.name]}`}>
             <BadgeImage
               src={badges[type.type.name]}
               alt={`Badge ${type.type.name}`}

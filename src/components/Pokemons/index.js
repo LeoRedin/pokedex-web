@@ -44,14 +44,14 @@ function Pokemons() {
   }, [])
 
   // eslint-disable-next-line no-console
-  console.log('pokes', pokemons)
+  // console.log('pokes', pokemons)
 
   if (loading) return <Spinner />
 
   return (
     <Wrapper>
       {pokemons.map(pokemon => (
-        <PokemonCard key={pokemon.id} {...pokemon} />
+        <PokemonCard key={`${pokemon.name}-${pokemon.id}`} {...pokemon} />
       ))}
     </Wrapper>
   )
