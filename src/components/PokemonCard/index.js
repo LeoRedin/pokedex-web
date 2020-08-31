@@ -15,7 +15,7 @@ import {
 
 function PokemonCard({id, name, types, image}) {
   return (
-    <Container types={types} to={`/pokemon/${id}`}>
+    <Container types={types} to={`/pokemons/${id}`}>
       <Id> {convertToPokemonId(id)} </Id>
       <Name> {name} </Name>
       <Badges>

@@ -9,6 +9,7 @@ function Routes() {
       <Route exact path="/" component={Home} />
       <Route exact path="/pokemons" component={Pokemons} />
       <Route exact path="/pokemons/:id" component={Pokemon} />
+      <Route exact path="/pokemon/:name" component={Pokemon} />
       <Route exact path="/geracoes" component={Geracoes} />
       <Route exact path="/sobre" component={Sobre} />
       <Redirect from="*" to="/" />
