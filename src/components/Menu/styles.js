@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-import {Link as RLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 export const Container = styled.nav`
   display: flex;
   z-index: 1;
 `
-export const Link = styled(RLink)`
+
+export const Link = styled(NavLink)`
   display: flex;
   text-decoration: none;
   color: #fff;
@@ -16,6 +17,10 @@ export const Link = styled(RLink)`
   &::active {
     text-decoration: none;
     color: #fff;
+  }
+
+  &::hover {
+    color: #db3400;
   }
 `
 

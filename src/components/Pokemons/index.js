@@ -20,6 +20,7 @@ function Pokemons() {
         pokeData.pokemons.map(pokemon => promises.push(api.get(pokemon.url)))
 
         Promise.allSettled(promises).then(results => {
+          console.log(results)
           const updatedPokemons = []
           results.map(result => {
             if (result.status === 'fulfilled') {

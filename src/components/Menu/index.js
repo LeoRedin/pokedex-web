@@ -33,12 +33,17 @@ function Menu() {
     <Container>
       <Content>
         {menuItems.map(item => (
-          <Link key={item.name} to={item.linkTo}>
+          <Link
+            exact
+            activeClassName="menu-active"
+            key={item.name}
+            to={item.linkTo}
+          >
             {item.name}
           </Link>
         ))}
         <Logout>
-          <Link>
+          <Link to="/logout">
             <Icon name={icons.USER} size="1x" /> Sair
           </Link>
         </Logout>
