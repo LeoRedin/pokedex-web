@@ -16,7 +16,7 @@ function Home() {
         nome ou geração
       </Title>
       <InputContent>
-        <Icon name={icons.SEARCH} size="md" />
+        <Icon name={icons.SEARCH} size="1x" />
         <Input
           placeholder="Deoxys"
           value={pokeName}

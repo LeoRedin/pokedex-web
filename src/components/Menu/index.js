@@ -39,7 +39,7 @@ function Menu() {
         ))}
         <Logout>
           <Link>
-            <Icon name={icons.USER} size="md" /> Sair
+            <Icon name={icons.USER} size="1x" /> Sair
           </Link>
         </Logout>
       </Content>
