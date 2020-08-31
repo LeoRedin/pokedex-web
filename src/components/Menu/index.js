@@ -1,20 +1,23 @@
 import React from 'react'
 
-import {Button} from 'components/Button'
+import {Icon} from 'components/Icon'
 
 import {icons} from 'utils/icons'
 
-import {Container, Link} from './styles'
+import {Container, Link, Logout, Content} from './styles'
 
 // 4 botões de navegação
 // Criar o botão
 
 function Menu() {
-  const buttons = [
+  const menuItems = [
     {
       name: 'Home',
-      icon: icons.HOME,
       linkTo: '/',
+    },
+    {
+      name: 'Pokemons',
+      linkTo: '/pokemons',
     },
     {
       name: 'Gerações',
@@ -22,22 +25,24 @@ function Menu() {
     },
     {
       name: 'Sobre',
-      icon: icons.INFO,
       linkTo: '/sobre',
     },
-    {
-      name: 'Logout',
-      icon: icons.LOGOUT,
-      linkTo: '/',
-    },
   ]
+
   return (
     <Container>
-      {buttons.map(button => (
-        <Link key={button.name} to={button.linkTo}>
-          <Button icon={button.icon}>{button.name}</Button>
-        </Link>
-      ))}
+      <Content>
+        {menuItems.map(item => (
+          <Link key={item.name} to={item.linkTo}>
+            {item.name}
+          </Link>
+        ))}
+        <Logout>
+          <Link>
+            <Icon name={icons.USER} size="md" /> Sair
+          </Link>
+        </Logout>
+      </Content>
     </Container>
   )
 }

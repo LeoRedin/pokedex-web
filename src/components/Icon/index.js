@@ -3,10 +3,10 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 import {Container} from './styles'
 
-function Icon({name, color = '#fff'}) {
+function Icon({name, color = '#fff', size = 'sm'}) {
   return (
     <Container>
-      <FontAwesomeIcon icon={name} color={color} size="sm" />
+      <FontAwesomeIcon icon={name} color={color} size={size} />
     </Container>
   )
 }

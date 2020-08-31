@@ -1,20 +1,14 @@
 import React from 'react'
 import './App.css'
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {
-  faSortAmountUp,
-  faSortAlphaDown,
-  faHome,
-  faInfo,
-  faSignOutAlt,
-} from '@fortawesome/free-solid-svg-icons'
+import {faUserCircle, faSearch} from '@fortawesome/free-solid-svg-icons'
 import {BrowserRouter as Router} from 'react-router-dom'
 
-import {Layout, RoutesLayout, Footer, Header} from 'components'
+import {Layout, RoutesLayout, Header} from 'components'
 
 import {Routes} from './routes'
 
-library.add(faSortAmountUp, faSortAlphaDown, faHome, faInfo, faSignOutAlt)
+library.add(faUserCircle, faSearch)
 
 function App() {
   return (
@@ -24,7 +18,6 @@ function App() {
         <RoutesLayout>
           <Routes />
         </RoutesLayout>
-        <Footer />
       </Layout>
     </Router>
   )

@@ -372,6 +372,36 @@ template {
 
 body {
   font-family: 'SF';
-  background-color: #202324;
-  color: '#FFF';
+  background-color: #ff9227;
+  color: #fff;
+  background-image: url('./assets/images/pikachu-bg.png');
+  overflow-x: hidden;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+input {
+  color: #000;
+}
+
+input:focus {
+  color: rgba(255, 255, 255, 1);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+
+input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+input::focus {
+  color: rgba(255, 255, 255, 0.3);
 }
