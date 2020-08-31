@@ -2,6 +2,7 @@ import React from 'react'
 
 import {getInitialPokemons, api} from 'services/api'
 import {PokemonCard} from 'components/PokemonCard'
+import {Spinner} from 'components/Spinner'
 
 import {Wrapper} from './styles'
 
@@ -45,7 +46,7 @@ function Home() {
   // eslint-disable-next-line no-console
   console.log('pokes', pokemons)
 
-  if (loading) return <span style={{color: '#fff'}}>Loading...</span>
+  if (loading) return <Spinner />
 
   return (
     <Wrapper>

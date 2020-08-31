@@ -16,4 +16,19 @@ async function getInitialPokemons() {
   }
 }
 
-export {api, getInitialPokemons}
+async function getPokemonById(id) {
+  try {
+    const responseData = await api.get(`/pokemon/${id}`)
+    return {
+      success: true,
+      pokemon: responseData.data,
+    }
+  } catch (error) {
+    return {
+      success: false,
+      error,
+    }
+  }
+}
+
+export {api, getInitialPokemons, getPokemonById}
