@@ -5,8 +5,15 @@ import {icons} from 'utils/icons'
 
 import {Container, Title, InputContent, Input} from './styles'
 
-function Home() {
+function Home({history}) {
   const [pokeName, setPokeName] = React.useState('')
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    const path = `/pokemon/${pokeName}`
+    history.push(path)
+  }
 
   return (
     <Container>
@@ -17,11 +24,13 @@ function Home() {
       </Title>
       <InputContent>
         <Icon name={icons.SEARCH} size="1x" />
-        <Input
-          placeholder="Deoxys"
-          value={pokeName}
-          onChange={e => setPokeName(e.target.value)}
-        />
+        <form onSubmit={handleSubmit}>
+          <Input
+            placeholder="Deoxys"
+            value={pokeName}
+            onChange={e => setPokeName(e.target.value)}
+          />
+        </form>
       </InputContent>
     </Container>
   )

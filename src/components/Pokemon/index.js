@@ -5,24 +5,26 @@ import {useParams} from 'react-router-dom'
 import {Spinner} from 'components/Spinner'
 import {getPokemonById} from 'services/api'
 
-function Pokemon() {
+function Pokemon({history}) {
   const [loading, setLoading] = React.useState(true)
   const [pokemon, setPokemon] = React.useState()
   const [error, setError] = React.useState(false)
 
-  const {id} = useParams()
+  const {id, name} = useParams()
 
   React.useEffect(() => {
     async function fetchPokemon() {
-      const pokeData = await getPokemonById(id)
+      const pokeData = await getPokemonById(id || name)
       console.log(pokeData)
       if (pokeData.success) {
         setPokemon(pokeData.pokemon)
+      } else {
+        history.push('/404')
       }
     }
 
     fetchPokemon()
-  }, [id])
+  }, [history, id, name])
 
   if (loading) return <Spinner />
 
