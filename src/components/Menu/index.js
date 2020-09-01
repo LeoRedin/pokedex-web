@@ -1,15 +1,17 @@
 import React from 'react'
-
+import {useDispatch} from 'react-redux'
 import {Icon} from 'components/Icon'
 
 import {icons} from 'utils/icons'
 
-import {Container, Link, Logout, Content} from './styles'
+import {Container, Link, Logout, Content, LogoutButton} from './styles'
 
 // 4 botões de navegação
 // Criar o botão
 
 function Menu() {
+  const dispatch = useDispatch()
+
   const menuItems = [
     {
       name: 'Home',
@@ -29,6 +31,10 @@ function Menu() {
     },
   ]
 
+  function logout() {
+    dispatch({type: 'LOGOUT'})
+  }
+
   return (
     <Container>
       <Content>
@@ -43,9 +49,9 @@ function Menu() {
           </Link>
         ))}
         <Logout>
-          <Link to="/logout">
+          <LogoutButton onClick={logout}>
             <Icon name={icons.USER} size="1x" /> Sair
-          </Link>
+          </LogoutButton>
         </Logout>
       </Content>
     </Container>

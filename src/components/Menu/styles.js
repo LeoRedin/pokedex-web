@@ -18,15 +18,26 @@ export const Link = styled(NavLink)`
     text-decoration: none;
     color: #fff;
   }
+`
 
-  &::hover {
-    color: #db3400;
+export const LogoutButton = styled.a`
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+  margin: 0 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+
+  &::active {
+    text-decoration: none;
+    color: #fff;
   }
 `
 
 export const Logout = styled.div`
   display: flex;
   margin-left: 50%;
+  cursor: pointer;
 `
 
 export const Content = styled.div`
