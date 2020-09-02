@@ -4,7 +4,8 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import {faUserCircle, faSearch} from '@fortawesome/free-solid-svg-icons'
 import {BrowserRouter as Router} from 'react-router-dom'
 import {createBrowserHistory} from 'history'
-import {useSelector} from 'react-redux'
+// import {useSelector} from 'react-redux'
+import {ReactQueryDevtools} from 'react-query-devtools'
 import {Layout, RoutesLayout, Header} from 'components'
 
 import {Routes} from './routes'
@@ -14,19 +15,22 @@ library.add(faUserCircle, faSearch)
 function App() {
   const history = createBrowserHistory()
 
-  const global = useSelector(store => store)
+  // const global = useSelector(store => store)
   // eslint-disable-next-line no-console
-  console.log(global)
+  // console.log(global)
 
   return (
-    <Router history={history}>
-      <Layout>
-        <Header />
-        <RoutesLayout>
-          <Routes />
-        </RoutesLayout>
-      </Layout>
-    </Router>
+    <>
+      <Router history={history}>
+        <Layout>
+          <Header />
+          <RoutesLayout>
+            <Routes />
+          </RoutesLayout>
+        </Layout>
+      </Router>
+      <ReactQueryDevtools initialOpen={false} />
+    </>
   )
 }
 

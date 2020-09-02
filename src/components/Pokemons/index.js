@@ -1,5 +1,5 @@
 import React from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import {useQuery} from 'react-query'
 import {getInitialPokemons, api} from 'services/api'
 import {PokemonCard} from 'components/PokemonCard'
 import {Spinner} from 'components/Spinner'
@@ -7,15 +7,12 @@ import {Spinner} from 'components/Spinner'
 import {Wrapper} from './styles'
 
 function Pokemons() {
-  const [loading, setLoading] = React.useState(false)
+  const pokemonsList = []
 
-  const dispatch = useDispatch()
-  const pokemonsList = useSelector(store => store.pokemons.pokemons)
-  // eslint-disable-next-line no-console
+  const allPokemons = useQuery('pokemons', getInitialPokemons)
 
   React.useEffect(() => {
     async function getPokes() {
-      setLoading(true)
       const pokeData = await getInitialPokemons()
 
       if (pokeData.success) {
@@ -38,22 +35,16 @@ function Pokemons() {
               updatedPokemons.push(uniquePoke)
             }
           })
-          dispatch({type: 'SET_POKEMONS', payload: updatedPokemons})
-          //setPokemons(updatedPokemons)
-          setLoading(false)
         })
       }
     }
-
-    if (pokemonsList.length <= 0) {
-      getPokes()
-    } else setLoading(false)
-  }, [dispatch, pokemonsList.length])
+    // getPokes()
+  }, [])
 
   // eslint-disable-next-line no-console
   // console.log('pokes', pokemons)
 
-  if (loading) return <Spinner />
+  if (allPokemons.isLoading) return <Spinner />
 
   return (
     <Wrapper>
