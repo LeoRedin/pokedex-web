@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {useSelector, useDispatch} from 'react-redux'
 import {getInitialPokemons, api} from 'services/api'
 import {PokemonCard} from 'components/PokemonCard'
 import {Spinner} from 'components/Spinner'
@@ -7,11 +7,15 @@ import {Spinner} from 'components/Spinner'
 import {Wrapper} from './styles'
 
 function Pokemons() {
-  const [pokemons, setPokemons] = React.useState()
-  const [loading, setLoading] = React.useState(true)
+  const [loading, setLoading] = React.useState(false)
+
+  const dispatch = useDispatch()
+  const pokemonsList = useSelector(store => store.pokemons.pokemons)
+  // eslint-disable-next-line no-console
 
   React.useEffect(() => {
     async function getPokes() {
+      setLoading(true)
       const pokeData = await getInitialPokemons()
 
       if (pokeData.success) {
@@ -34,14 +38,17 @@ function Pokemons() {
               updatedPokemons.push(uniquePoke)
             }
           })
-          setPokemons(updatedPokemons)
+          dispatch({type: 'SET_POKEMONS', payload: updatedPokemons})
+          //setPokemons(updatedPokemons)
           setLoading(false)
         })
       }
     }
 
-    getPokes()
-  }, [])
+    if (pokemonsList.length <= 0) {
+      getPokes()
+    } else setLoading(false)
+  }, [dispatch, pokemonsList.length])
 
   // eslint-disable-next-line no-console
   // console.log('pokes', pokemons)
@@ -50,7 +57,7 @@ function Pokemons() {
 
   return (
     <Wrapper>
-      {pokemons.map(pokemon => (
+      {pokemonsList.map(pokemon => (
         <PokemonCard key={`${pokemon.name}-${pokemon.id}`} {...pokemon} />
       ))}
     </Wrapper>
