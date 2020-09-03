@@ -8,9 +8,13 @@ function Geracoes() {
 
   return (
     <div>
-      <button onClick={() => dispatch({type: 'increment'})}>Geração anterior</button>
+      <button onClick={() => dispatch({type: 'decrement'})}>
+        Geração anterior
+      </button>
       {`Geração atual: ${generation}`}
-      <button onClick={() => dispatch({type: 'decrement'})}>Próxima Geração </button>
+      <button onClick={() => dispatch({type: 'increment'})}>
+        Próxima Geração{' '}
+      </button>
     </div>
   )
 }

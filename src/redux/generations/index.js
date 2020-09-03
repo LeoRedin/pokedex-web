@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  generation: []
+  generation: 1,
 }
 
 const generationsReducer = (state = INITIAL_STATE, action) => {
@@ -7,12 +7,12 @@ const generationsReducer = (state = INITIAL_STATE, action) => {
     case 'increment':
       return {
         ...state,
-        generation: state.generation + 1
+        generation: state.generation + 1,
       }
     case 'decrement':
       return {
         ...state,
-        generation: state.generation - 1
+        generation: state.generation - 1,
       }
     default:
       return {
