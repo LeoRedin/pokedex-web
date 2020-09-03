@@ -2,13 +2,16 @@ import React from 'react'
 
 import {getInitialPokemons, api} from 'services/api'
 import {PokemonCard} from 'components/PokemonCard'
+import {Icon} from 'components/Icon'
 import {Spinner} from 'components/Spinner'
-
-import {Wrapper} from './styles'
+import {icons} from 'utils/icons'
+import {Wrapper, Input, InputContent} from './styles'
 
 function Pokemons() {
   const [pokemons, setPokemons] = React.useState()
+  const [backupPokemons, setBackupPokemons] = React.useState()
   const [loading, setLoading] = React.useState(true)
+  const [pokeName, setPokeName] = React.useState('')
 
   React.useEffect(() => {
     async function getPokes() {
@@ -35,6 +38,7 @@ function Pokemons() {
             }
           })
           setPokemons(updatedPokemons)
+          setBackupPokemons(updatedPokemons)
           setLoading(false)
         })
       }
@@ -43,13 +47,32 @@ function Pokemons() {
     getPokes()
   }, [])
 
-  // eslint-disable-next-line no-console
-  // console.log('pokes', pokemons)
+  React.useEffect(() => {
+    if (backupPokemons) {
+      const oldPokemons = [...backupPokemons]
+      const filteredPokemons = oldPokemons.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(pokeName.toLowerCase())
+          ? pokemon
+          : null,
+      )
+      setPokemons(filteredPokemons)
+    }
+  }, [backupPokemons, pokeName])
 
   if (loading) return <Spinner />
 
   return (
     <Wrapper>
+      <InputContent>
+        <Icon name={icons.SEARCH} size="1x" />
+        <Input
+          placeholder="Deoxys"
+          value={pokeName}
+          onChange={e => setPokeName(e.target.value)}
+        />
+      </InputContent>
+      <br />
+      <br />
       {pokemons.map(pokemon => (
         <PokemonCard key={`${pokemon.name}-${pokemon.id}`} {...pokemon} />
       ))}
