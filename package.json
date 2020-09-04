@@ -22,13 +22,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "jest --watch"
   },
   "eslintConfig": {
     "extends": [
       "kentcdodds",
       "kentcdodds/react",
-      "kentcdodds/jsx-a11y"
+      "kentcdodds/jsx-a11y",
+      "kentcdodds/jest"
     ],
     "rules": {
       "jsx-a11y/autocomplete-valid": 0,
